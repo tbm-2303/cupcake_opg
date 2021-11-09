@@ -2,7 +2,7 @@ package business.entities;
 
 public class Cupcake {
     String top;
-    String bottom;
+    String bot;
     int amount;
     String discription;
     int price;
@@ -10,7 +10,7 @@ public class Cupcake {
 
     public Cupcake(String top, String bottom, int amount) {
         this.top = top;
-        this.bottom = bottom;
+        this.bot = bot;
         this.amount = amount;
     }
 
@@ -23,11 +23,11 @@ public class Cupcake {
     }
 
     public String getBottom() {
-        return bottom;
+        return bot;
     }
 
     public void setBottom(String bottom) {
-        this.bottom = bottom;
+        this.bot = bottom;
     }
 
     public int getAmount() {
