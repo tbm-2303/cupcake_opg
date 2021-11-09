@@ -18,25 +18,26 @@
             <p class="bestilP mb-5">Vælg din bund, topping og mængde her:</p>
 
             <!-- add action here--------------------------------------------------------------------------------->
-            <form method="post" class="mb-3 d-flex flex-lg-row flex-sm-column justify-content-between" action="${pageContext.request.contextPath}/fc/addtocart">
+            <form method="post" class="mb-3 d-flex flex-lg-row flex-sm-column justify-content-between"
+                  action="${pageContext.request.contextPath}/fc/addtocart">
                 <select class="bestilSelect valgBund" name="bot">
                     <option selected>Vælg bund</option>
                     <c:forEach var="botItem" items="${applicationScope.botList}">
-                        <option value="${botItem.name}">:  ${botItem.price}kr </option>
+                        <option value="${botItem.bot_id}">${botItem.name}: ${botItem.price}kr(${botItem.bot_id})</option>
                     </c:forEach>
                 </select>
 
-                <select class="bestilSelect valgTopping"name="top" >
+                <select class="bestilSelect valgTopping" name="top">
                     <option selected>Vælg topping</option>
                     <c:forEach var="topItem" items="${applicationScope.topList}">
-                        <option value="${topItem.name}">:  ${topItem.price}kr </option>
+                        <option value="${topItem.top_id}">${topItem.name}: ${topItem.price}kr(${topItem.top_id})</option>
                     </c:forEach>
                 </select>
 
-                <select class="bestilSelect valgAntal" id="antal">
-                    <option selected >Vælg antal</option>
+                <select class="bestilSelect valgAntal" id="antal" name="amount">
+                    <option selected>Vælg antal</option>
                     <c:forEach var="var" begin="1" end="10" step="1">
-                        <option value="${var}">${var}cm</option>
+                        <option value="${var}">${var}</option>
                     </c:forEach>
                 </select>
                 <button type="submit" class="kurvBtn btn btn-primary btn-lg mb-5">Læg i kurv</button>

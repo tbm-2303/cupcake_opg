@@ -32,7 +32,7 @@ public class CupcakeMapper {
 
                     return new Bot(bot_id, name, price);
                 } else {
-                    throw new UserException("Database Bottom issue");
+                    throw new UserException("Database Bot issue");
                 }
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());

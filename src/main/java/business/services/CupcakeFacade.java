@@ -16,8 +16,8 @@ public class CupcakeFacade {
     }
 
 
-    public Bot getBot(int bottomId) throws UserException {
-        return cupcakeMapper.getBot(bottomId);
+    public Bot getBot(int botId) throws UserException {
+        return cupcakeMapper.getBot(botId);
     }
 
 

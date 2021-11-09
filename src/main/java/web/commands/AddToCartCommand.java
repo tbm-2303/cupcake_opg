@@ -28,11 +28,11 @@ public class AddToCartCommand extends CommandProtectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         try {
             int topId = Integer.parseInt(request.getParameter("top"));
-            int bottomId = Integer.parseInt(request.getParameter("bot"));
+            int botId = Integer.parseInt(request.getParameter("bot"));
             int amount = Integer.parseInt(request.getParameter("amount"));
 
             Top top = cupcakeFacade.getTop(topId);
-            Bot bot = cupcakeFacade.getBot(bottomId);
+            Bot bot = cupcakeFacade.getBot(botId);
             Cupcake cupcake = new Cupcake(top.getName(), bot.getName(), amount);
             int price = top.getPrice() + bot.getPrice();
             cupcake.setPrice(price);
@@ -41,14 +41,14 @@ public class AddToCartCommand extends CommandProtectedPage {
             if (shoppingCart == null) {
                 shoppingCart = new ArrayList<>();
             }
-
             shoppingCart.add(cupcake);
+
             request.getSession().setAttribute("shoppingCart", shoppingCart);
 
             return "addtocart_confirmationpage";
 
         } catch (NumberFormatException | UserException ex) {
-            request.setAttribute("error", "Du glemte at vælge noget");
+            request.setAttribute("error", ex.getMessage());
             return "orderpage";
         }
     }

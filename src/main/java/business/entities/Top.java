@@ -6,6 +6,9 @@ public class Top {
     int price;
 
     public Top(int top_id, String name, int price) {
+        this.top_id = top_id;
+        this.name = name;
+        this.price = price;
     }
 
     public int getTop_id() {
