@@ -3,9 +3,9 @@ package web.commands;
 import business.exceptions.UserException;
 import business.persistence.Database;
 
-import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 
 public abstract class Command
 {

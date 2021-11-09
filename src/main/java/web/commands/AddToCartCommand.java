@@ -4,7 +4,6 @@ import business.entities.Bot;
 import business.entities.Cupcake;
 import business.entities.Top;
 import business.exceptions.UserException;
-import business.persistence.CupcakeMapper;
 import business.services.CupcakeFacade;
 import business.services.UserFacade;
 

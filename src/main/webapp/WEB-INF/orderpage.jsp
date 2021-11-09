@@ -11,26 +11,25 @@
     </jsp:attribute>
 
     <jsp:body>
-        <%--        <form action="${pageContext.request.contextPath}/fc/logincommand" method="post" class="mb-3 d-flex flex-column bodyBg">--%>
-        <%--    change to get from DB -------------------------------------------------------------------------------------------------------%>
+
         <section class="bodyBg">
             <h2 class="bestilH2 mb-4">Bestil her:</h2>
             <p class="bestilP mb-5">Vælg din bund, topping og mængde her:</p>
 
-            <!-- add action here--------------------------------------------------------------------------------->
+
             <form method="post" class="mb-3 d-flex flex-lg-row flex-sm-column justify-content-between"
                   action="${pageContext.request.contextPath}/fc/addtocart">
                 <select class="bestilSelect valgBund" name="bot">
                     <option selected>Vælg bund</option>
                     <c:forEach var="botItem" items="${applicationScope.botList}">
-                        <option value="${botItem.bot_id}">${botItem.name}: ${botItem.price}kr(${botItem.bot_id})</option>
+                        <option value="${botItem.bot_id}">${botItem.name}: ${botItem.price}kr</option>
                     </c:forEach>
                 </select>
 
                 <select class="bestilSelect valgTopping" name="top">
                     <option selected>Vælg topping</option>
                     <c:forEach var="topItem" items="${applicationScope.topList}">
-                        <option value="${topItem.top_id}">${topItem.name}: ${topItem.price}kr(${topItem.top_id})</option>
+                        <option value="${topItem.top_id}">${topItem.name}: ${topItem.price}kr</option>
                     </c:forEach>
                 </select>
 
