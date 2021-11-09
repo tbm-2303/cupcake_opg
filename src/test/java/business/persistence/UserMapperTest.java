@@ -11,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class UserMapperTest {
 
-    private final static String DATABASE = "startcode";  // Change this to your own database
+    private final static String DATABASE = "cupcake_db";  // Change this to your own database
     private final static String TESTDATABASE = DATABASE + "_test";
-    private final static String USER = "dev";
-    private final static String PASSWORD = "ax2";
-    private final static String URL = "jdbc:mysql://localhost:3306/" + TESTDATABASE + "?serverTimezone=CET&useSSL=false";
+    private final static String USER = "root";
+    private final static String PASSWORD = "Timmy2008";
+    private final static String URL = "jdbc:mysql://localhost:3306/" + "cupcake_db_test" + "?serverTimezone=CET&useSSL=false";
 
     private static Database database;
     private static UserMapper userMapper;

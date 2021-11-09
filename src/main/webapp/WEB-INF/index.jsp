@@ -14,24 +14,29 @@
 
     <jsp:body>
 
-        <div>
-            <h2>Our Cool Site</h2>
+        <div class="bodyBg">
+            <h2 class="display-4">Velkommen ombord</h2>
 
-            <div style="margin-top: 3em;margin-bottom: 3em;">
-                Main page for this 2. semester start project used at cphbusiness.dk
+            <p class="lead velkommenP">
+                Øens bedste cupcakes. Vælg og bestil her:
+            </p>
+
+            <div class="btnOptions">
+                <a type="button" class="btn btn-sm btn-primary btn-lg mb-5" href="">Se udvalg</a>
+                <a type="button" class="btn btn-sm btn-primary btn-lg mb-5" href="">Bestil cupcakes</a>
             </div>
 
             <c:if test="${sessionScope.role == 'employee' }">
-                <p style="font-size: larger">This is what you can do,
-                    since your are logged in as an employee</p>
-                 <p><a href="fc/employeepage">Employee Page</a>
-             </c:if>
+            <p style="font-size: larger">This is what you can do,
+                since your are logged in as an employee</p>
+            <p><a href="fc/employeepage">Employee Page</a>
+                </c:if>
 
-             <c:if test="${sessionScope.role == 'customer' }">
-                <p style="font-size: larger">This is what you can do, since your
-                    are logged in as a customer</p>
-                <p><a href="fc/customerpage">Customer Page</a>
-            </c:if>
+                <c:if test="${sessionScope.role == 'customer' }">
+            <p style="font-size: larger">This is what you can do, since your
+                are logged in as a customer</p>
+            <p><a href="fc/customerpage">Customer Page</a>
+                </c:if>
 
         </div>
 
