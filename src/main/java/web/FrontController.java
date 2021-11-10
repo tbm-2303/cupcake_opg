@@ -5,18 +5,19 @@ import business.entities.Top;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.services.CupcakeFacade;
-import web.commands.*;
+import web.commands.Command;
+import web.commands.CommandUnknown;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet(name = "FrontController", urlPatterns = {"/fc/*"})
 public class FrontController extends HttpServlet {
@@ -50,8 +51,7 @@ public class FrontController extends HttpServlet {
 
     }
 
-    protected void processRequest(
-            HttpServletRequest request,
+    protected void processRequest(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
         try {

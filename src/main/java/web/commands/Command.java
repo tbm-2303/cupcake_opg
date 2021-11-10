@@ -7,18 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 
-public abstract class Command
-{
+public abstract class Command {
     //Return a token string from the execute method to make a client side redirect,
     // instead of a server side (forward) redirect
     public final static String REDIRECT_INDICATOR = "#*redirect*#_###_";
-    public final static String WAS_NOT_FOUND_COMMAND ="404_NOT_FOUND";
+    public final static String WAS_NOT_FOUND_COMMAND = "404_NOT_FOUND";
 
     private static HashMap<String, Command> commands;
     public static Database database;
 
-    private static void initCommands(Database database)
-    {
+    private static void initCommands(Database database) {
         commands = new HashMap<>();
         commands.put("index", new CommandUnprotectedPage("index"));
         commands.put("loginpage", new CommandUnprotectedPage("loginpage"));
@@ -30,20 +28,17 @@ public abstract class Command
         commands.put("registerpage", new CommandUnprotectedPage("registerpage"));
         commands.put("registercommand", new RegisterCommand(""));
 //----------------------------------(commands)--------------------------------------------------------------------------------
-        commands.put("addtocart", new AddToCartCommand("addtocart_confirmationpage","customer"));
+        commands.put("addtocart", new AddToCartCommand("addtocart_confirmationpage", "customer"));
 //-----------------------------------(links)-------------------------------------------------------------------------------
         commands.put("orderpage", new CommandUnprotectedPage("orderpage"));
+        commands.put("cartcommand", new CommandUnprotectedPage("shopcart"));
     }
 
-    public static Command fromPath(
-            HttpServletRequest request,
-            Database db)
-    {
+    public static Command fromPath(HttpServletRequest request, Database db) {
         String action = request.getPathInfo().replaceAll("^/+", "");
         System.out.println("--> " + action);
 
-        if (commands == null)
-        {
+        if (commands == null) {
             database = db;
             initCommands(database);
         }
@@ -51,9 +46,6 @@ public abstract class Command
         return commands.getOrDefault(action, new CommandUnknown());   // unknowncommand is default
     }
 
-    public abstract String execute(
-            HttpServletRequest request,
-            HttpServletResponse response)
-            throws UserException;
+    public abstract String execute(HttpServletRequest request, HttpServletResponse response) throws UserException;
 
 }
